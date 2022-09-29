@@ -1,4 +1,4 @@
-function seed() {
+function seed(a, b, c) {
   return Array.prototype.slice.call(arguments);
 }
 
@@ -8,7 +8,7 @@ function same([x, y], [j, k]) {
 
 // The game state to search for `cell` is passed as the `this` value of the function.
 function contains(cell) {
-  return this.some(c => same(c, cell));
+  return this.some((c) => same(c, cell));
 }
 
 const printCell = (cell, state) => {
@@ -55,7 +55,7 @@ const getLivingNeighbors = (cell, state) => {
 };
 
 const willBeAlive = (cell, state) => {
-  const LivingNeighbors = getLivingNeighbors(cell, state);
+  const livingNeighbors = getLivingNeighbors(cell, state);
 
   return (
     livingNeighbors.length === 3 ||
